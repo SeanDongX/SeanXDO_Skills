@@ -1,9 +1,9 @@
 ---
-name: ab-test-generator
+name: abtest
 description: Use when planning A/B tests, creating experiment variants, comparing messaging or product ideas, or turning requested dimensions into testable alternatives
 ---
 
-# AB Test Generator
+# abtest
 
 ## Overview
 
@@ -108,6 +108,10 @@ For more than one tested dimension, use a matrix instead of mixing everything in
 | Visual | People vs product vs result vs process vs social proof |
 | Flow order | Problem-first vs proof-first vs action-first vs education-first |
 | Audience | Beginner vs expert, owner vs manager, new user vs returning user |
+
+## Examples
+
+When the user asks for examples, templates, or help choosing the right experiment shape, use `examples.md`. It covers landing pages, local social posts, onboarding, pricing, lifecycle email, and multi-dimension matrix tests.
 
 ## Quality Checklist
 
