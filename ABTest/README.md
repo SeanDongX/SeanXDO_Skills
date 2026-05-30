@@ -1,6 +1,6 @@
 # abtest Skill
 
-This folder contains the `abtest` Codex skill for generating A/B test variants from a business goal and requested testing dimensions.
+This folder contains the `abtest` Codex skill for generating A/B test variants from a business goal and requested testing dimensions. When the A/B versions are implemented as local files, the skill also requires an HTML guide page with file links and screenshot comparison.
 
 ## Files
 
@@ -39,6 +39,10 @@ This folder contains the `abtest` Codex skill for generating A/B test variants f
 目标是提升 feature adoption。维度是入口文案、证明方式、默认状态。
 ```
 
+```text
+ABTest skill：为这个 landing page 做 A/B 两个 HTML 版本。完成开发后生成一个 abtest-guide.html，里面要有 A/B 文件链接和截图对比。
+```
+
 ## Expected Output
 
 The skill should produce:
@@ -49,3 +53,4 @@ The skill should produce:
 - Primary and guardrail metrics
 - Decision rule
 - Tracking notes
+- For implemented variants: an `abtest-guide.html` review page with **clickable links that open each A/B version in a new tab** (most important section), side-by-side screenshots, experiment summary, and a reviewer checklist

@@ -137,3 +137,29 @@ Expected compact response:
 - 风险：点击提升但后续转化质量下降
 - 下一步：同一广告素材、同一受众、同一预算跑 3-7 天
 ```
+
+## 8. Implemented HTML Variant Review
+
+Prompt:
+
+```text
+ABTest skill：为产品页开发 A/B 两个 HTML 版本，完成后生成一个 HTML 引导页，有 AB 文件链接和截图对比。
+```
+
+Expected deliverables:
+
+- `variant-a.html`: control or baseline page.
+- `variant-b.html`: changed page that isolates the tested dimension.
+- Screenshot files for A and B, such as `screenshots/variant-a.png` and `screenshots/variant-b.png`.
+- `abtest-guide.html`: review page with direct relative links to both HTML files and side-by-side screenshots.
+
+Expected guide content (sections must appear in this order):
+
+| Section | Requirement | Priority |
+| --- | --- | --- |
+| Version links | Clickable links to A and B files that open each version in a new browser tab. Each link must be labeled with variant name and tested dimension (e.g. `A - Control · Headline Angle`). | **Must** |
+| Screenshot comparison | Show A and B screenshots side by side at comparable dimensions. | Should |
+| Experiment summary | Include goal, audience, hypothesis, primary metric, and guardrail metric. | Should |
+| Review checklist | Confirm visual difference, link validity, screenshot freshness, and tracking readiness. | Nice to have |
+
+If screenshots cannot be captured in the current environment, the guide should still be created with placeholder image slots and a short note naming the command or browser step needed to regenerate screenshots.

@@ -1,13 +1,13 @@
 ---
 name: abtest
-description: Use when planning A/B tests, creating experiment variants, comparing messaging or product ideas, or turning requested dimensions into testable alternatives
+description: Use when planning A/B tests, creating experiment variants, comparing messaging or product ideas, turning requested dimensions into testable alternatives, or packaging completed A/B variant files for review
 ---
 
 # abtest
 
 ## Overview
 
-This skill turns a target, audience, and requested dimensions into A/B test variants that are specific enough to ship and measure. The core rule is: every variant must isolate a clear hypothesis, define what changes, and state how success will be judged.
+This skill turns a target, audience, and requested dimensions into A/B test variants that are specific enough to ship and measure. The core rule is: every variant must isolate a clear hypothesis, define what changes, and state how success will be judged. When A/B versions are implemented as files, finish by creating an HTML guide page for review.
 
 ## When to Use
 
@@ -17,6 +17,7 @@ Use this when the user wants to:
 - Test one or more dimensions such as headline, offer, CTA, proof, tone, visual direction, audience segment, pricing anchor, workflow order, or information density.
 - Convert a vague idea into measurable experiments.
 - Compare multiple positioning or creative directions without drifting away from the same business goal.
+- Package completed A/B version files into a review page with direct file links and screenshot comparison.
 
 Do not use this for broad brainstorming with no testing intent. If the user only asks for creative options, create options first and add experiment framing only if useful.
 
@@ -95,6 +96,21 @@ For more than one tested dimension, use a matrix instead of mixing everything in
 - Include a control even if the user only asks for new versions.
 - Preserve the user's stated thesis, brand, and constraints. Do not optimize away the core idea.
 
+## After Development
+
+When the task includes developing or modifying A/B version files, do not stop after creating the variants. Add a local HTML guide page next to the generated files or in the nearest sensible output folder.
+
+The guide page must include (in this order of priority):
+
+1. **Direct clickable links to each A/B version file.** Each link must use a relative path, open in a new tab, and be clearly labeled (e.g. "A - Control" / "B - Variant Name"). This is the most important section — reviewers must be able to open each version with one click.
+2. A screenshot comparison section showing the rendered A and B versions side by side at comparable dimensions.
+3. Variant names, tested dimension, hypothesis, and primary metric.
+4. A short reviewer checklist covering visual differences, link validity, screenshot freshness, and tracking readiness.
+
+Suggested filename: `abtest-guide.html` unless the project has an existing naming convention.
+
+If screenshots do not already exist, create them with the repo's browser or screenshot workflow when available. If screenshot capture is blocked, still generate the guide page with clear placeholder image slots and state exactly what command or browser step is needed to refresh them.
+
 ## Common Dimensions
 
 | Dimension | Useful Contrasts |
@@ -123,6 +139,7 @@ Before returning the final answer, check:
 - Guardrail metrics protect against false wins.
 - The recommendation explains why these variants are worth testing now.
 - The output can be handed to a designer, marketer, or engineer without another planning round.
+- Implemented A/B version work includes an HTML guide page with **clickable A/B version links that open in new tabs** as the first and most prominent section.
 
 ## Compact Response Mode
 
