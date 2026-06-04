@@ -130,6 +130,55 @@ Minimum `abtest-guide.html` sections:
 
 If screenshots cannot be captured in the current environment, still create `abtest-guide.html` with placeholder image slots and a clear refresh step.
 
+## HWPptSkill Usage
+
+HWPptSkill generates **single-file HTML horizontal-swipe decks** for talks, product launches, company summaries, business reports, deck visuals, and social cover assets.
+
+### Example Prompts
+
+After installation, ask your agent:
+
+```text
+Create a Swiss-style deck from this article, around 7 slides, with 2-3 generated visuals.
+```
+
+Other useful prompts:
+
+```text
+Turn this Markdown file into an editorial magazine-style presentation.
+Create a 10-slide company summary deck in the Huawei corporate report style.
+Create a 21:9 social cover from the core idea of this deck.
+Redesign this product screenshot as a 16:10 slide visual.
+```
+
+### Style Selection
+
+| Style | Best For | Template |
+| --- | --- | --- |
+| Style A · Editorial magazine x electronic ink | Narrative talks, industry observations, opinion pieces, launch storytelling | `assets/template.html` |
+| Style B · Swiss International | Tech products, frameworks, data reports, engineering/design analysis | `assets/template-swiss.html` |
+| Style C · Huawei Corporate | Company summaries, work plans, business reports, team retrospectives | `assets/template-huawei.html` |
+
+### Basic Workflow
+
+1. Choose a style: A editorial, B Swiss, or C Huawei Corporate.
+2. Clarify audience, duration, source material, image/screenshot needs, theme, and hard constraints.
+3. Copy the matching template into the output folder and create a sibling `images/` folder.
+4. Plan slide count and narrative rhythm, then choose layouts from the matching `references/layouts*.md`.
+5. Fill slide content inside the template, avoiding mixed layout classes across styles.
+6. In Codex, optionally ask the agent to generate photos, infographics, flow diagrams, screenshot redesigns, or cover images.
+7. Run the matching validator to check layout, image slots, brand slots, titles, and unsafe SVG usage.
+8. Open the generated `index.html` in a browser and iterate.
+
+### Common Validation Commands
+
+```bash
+node HWPptSkill/scripts/validate-swiss-deck.mjs path/to/index.html
+node HWPptSkill/scripts/validate-huawei-deck.mjs path/to/index.html
+```
+
+See [HWPptSkill/README.md](./HWPptSkill/README.md) and [HWPptSkill/SKILL.md](./HWPptSkill/SKILL.md) for the full rules.
+
 ## Codex Usage
 
 Use the slash command:

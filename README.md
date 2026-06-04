@@ -8,8 +8,8 @@ English: [README.en.md](./README.en.md)
 
 | Skill | 路径 | 用途 |
 | --- | --- | --- |
-| ABTest | `ABTest/` | 规划 A/B 测试；当 A/B 版本文件开发完成后，生成带版本链接和截图对比的 HTML 对比页。 |
-| HWPptSkill | `HWPptSkill/` | 生成华为风格单文件 HTML 演示文稿、配图和封面资产。 |
+| AB 测试 | `ABTest/` | 规划 A/B 测试；当 A/B 版本文件开发完成后，生成带版本链接和截图对比的 HTML 对比页。 |
+| 华为 Style PPT | `HWPptSkill/` | 生成华为风格单文件 HTML 演示文稿、配图和封面资产。 |
 
 ## 安装
 
@@ -127,6 +127,55 @@ ls ~/.openclaw/skills/abtest/SKILL.md
 4. Review checklist：链接有效性、视觉差异、截图新鲜度、埋点准备情况。
 
 如果当前环境不能截图，也要生成 `abtest-guide.html`，保留占位图区域，并写明刷新截图的命令或浏览器步骤。
+
+## HWPptSkill 使用方法
+
+HWPptSkill 用来生成**单文件 HTML 横向翻页 PPT**，适合演讲、分享、产品发布、公司总结、商务汇报、配图和封面生成。
+
+### 触发示例
+
+安装后，直接对 Agent 说：
+
+```text
+帮我基于这篇文章做一份瑞士风 PPT，控制在 7 页左右，需要 2-3 张配图。
+```
+
+也可以使用这些请求：
+
+```text
+帮我把这份 Markdown 做成杂志风演讲 PPT。
+参考华为企业汇报风格，做一份 10 页公司总结 PPT。
+基于这份 PPT 的核心观点，生成一张公众号 21:9 头图。
+把这张产品截图重新设计成适合 PPT 的 16:10 配图。
+```
+
+### 风格选择
+
+| 风格 | 适合内容 | 模板 |
+| --- | --- | --- |
+| Style A · 电子杂志 × 电子墨水 | 人文分享、行业观察、观点表达、发布会叙事 | `assets/template.html` |
+| Style B · 瑞士国际主义 | 科技产品、方法论、数据汇报、工程/设计分析 | `assets/template-swiss.html` |
+| Style C · 华为企业汇报 | 公司总结、工作计划、商务汇报、部门复盘 | `assets/template-huawei.html` |
+
+### 基本工作流
+
+1. 选择风格：A 电子杂志风、B 瑞士风、C 华为企业汇报风。
+2. 明确受众、时长、素材、图片/截图需求、主题色和硬约束。
+3. 拷贝对应模板到目标目录，并创建同级 `images/` 文件夹。
+4. 先规划页数和叙事节奏，再从对应 `references/layouts*.md` 选择版式。
+5. 按模板填充 slide 内容，避免混用不同风格的 layout class。
+6. 如需配图，在 Codex 中可让 Agent 生成照片、信息图、流程图、截图再设计或封面图。
+7. 运行对应校验脚本，检查版式、图片槽位、品牌位、标题和危险 SVG。
+8. 浏览器打开生成的 `index.html` 预览并迭代。
+
+### 常用校验命令
+
+```bash
+node HWPptSkill/scripts/validate-swiss-deck.mjs path/to/index.html
+node HWPptSkill/scripts/validate-huawei-deck.mjs path/to/index.html
+```
+
+更多规则见 [HWPptSkill/README.md](./HWPptSkill/README.md) 和 [HWPptSkill/SKILL.md](./HWPptSkill/SKILL.md)。
 
 ## Codex 用法
 
